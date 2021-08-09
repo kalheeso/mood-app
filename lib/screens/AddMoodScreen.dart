@@ -164,7 +164,7 @@ class _AddMoodScreenState extends State<AddMoodScreen> {
                         child: StandardButton(
                             color: Colors.teal[400],
                             onPressed: () {
-                              if (moodSelected && noteFilled) {
+                              if (ableToPost()) {
                                 DateTime now = new DateTime.now();
                                 DateTime date =
                                     new DateTime(now.year, now.month, now.day);

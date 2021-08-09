@@ -141,6 +141,7 @@ class UtilDialog {
     String title,
     String message,
   }) {
+    TextEditingController _textFieldController = TextEditingController();
     showDialog(
         context: context,
         builder: (context) {
@@ -159,7 +160,18 @@ class UtilDialog {
                             style: GoogleFonts.nunitoSans(
                                 fontSize: 18, fontWeight: FontWeight.w500),
                           ),
-                          Divider(thickness: 1,),
+                          Divider(
+                            thickness: 1,
+                          ),
+                          StandardTextField(
+                            hintText: "Insert here",
+                            minLines: 1,
+                            maxLines: 3,
+                            onChanged: (text) {
+                              mood.note = text;
+                            },
+                            textEditingController: _textFieldController,
+                          ),
                           
                         ],
                       ))));

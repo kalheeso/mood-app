@@ -180,6 +180,16 @@ class _FeedScreenState extends State<FeedScreen> {
                                                   children: [
                                                     IconButton(
                                                         icon: FaIcon(
+                                                          FontAwesomeIcons.pen,
+                                                          size: 14,
+                                                          color:
+                                                              Colors.grey[600],
+                                                        ),
+                                                        onPressed: () {
+                                                           UtilDialog.editMood(context, mood);
+                                                        }),
+                                                    IconButton(
+                                                        icon: FaIcon(
                                                           FontAwesomeIcons
                                                               .trash,
                                                           size: 14,
