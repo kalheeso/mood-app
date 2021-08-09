@@ -146,14 +146,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                                             _userController
                                                                 .loggedUser,
                                                             success: () {
-                                                      Navigator.pushReplacement(
-                                                          context,
-                                                          MaterialPageRoute(
-                                                              builder: (_) =>
-                                                                  HomeScreen(
-                                                                    user: _userController
-                                                                        .loggedUser,
-                                                                  )));
+                                                      Navigator.of(context)
+                                                          .pushNamedAndRemoveUntil(
+                                                              '/homeScreen',
+                                                              (Route<dynamic>
+                                                                      route) =>
+                                                                  false);
                                                     }, error: (message) {
                                                       UtilDialog.showInfo(
                                                           context,

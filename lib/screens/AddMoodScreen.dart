@@ -19,7 +19,7 @@ class AddMoodScreen extends StatefulWidget {
 class _AddMoodScreenState extends State<AddMoodScreen> {
   UserController _userController = GetIt.I.get<UserController>();
   MoodController _moodController = GetIt.I.get<MoodController>();
-  TextEditingController controladorFormulario = TextEditingController();
+  TextEditingController _textFieldController = TextEditingController();
 
   String _msgForSuccess;
 
@@ -60,7 +60,7 @@ class _AddMoodScreenState extends State<AddMoodScreen> {
                     child: StandardTextField(
                         minLines: 1,
                         maxLines: 3,
-                        textEditingController: controladorFormulario,
+                        textEditingController: _textFieldController,
                         hintText: "What's going on?",
                         onChanged: (String text) {
                           text.length > 3
@@ -169,11 +169,19 @@ class _AddMoodScreenState extends State<AddMoodScreen> {
                                 DateTime date =
                                     new DateTime(now.year, now.month, now.day);
                                 moodPost.date = date;
-                                moodPost.note = controladorFormulario.text;
+                                moodPost.note = _textFieldController.text;
                                 moodPost.idCreator =
                                     _userController.loggedUser.id;
                                 _moodController.postEditMood(moodPost,
                                     success: () {
+                                  setState(() {
+                                    _textFieldController.text = "";
+                                    emoji1Color = false;
+                                    emoji2Color = false;
+                                    emoji3Color = false;
+                                    emoji4Color = false;
+                                    moodSelected = false;
+                                  });
                                   UtilDialog.showInfo(context,
                                       title: "Sent", message: _msgForSuccess);
                                 }, error: (msg) {

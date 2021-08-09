@@ -105,7 +105,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(15, 15, 0, 0),
+                padding: const EdgeInsets.fromLTRB(15, 12, 0, 12),
                 child: Row(
                   children: [
                     FaIcon(
@@ -130,7 +130,40 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ))
                   ],
                 ),
-              )
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(12, 0, 12, 0),
+                child: Divider(
+                  thickness: 1,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(15, 12, 0, 0),
+                child: Row(
+                  children: [
+                    FaIcon(
+                      FontAwesomeIcons.edit,
+                      size: 22,
+                      color: Colors.grey[500],
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    TextButton(
+                        onPressed: () {
+                          UtilDialog.changePassword(
+                              context, _userController.loggedUser);
+                        },
+                        child: Text(
+                          "Change password",
+                          style: GoogleFonts.nunitoSans(
+                              fontSize: 24,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.grey[500]),
+                        ))
+                  ],
+                ),
+              ),
             ],
           ),
         )

@@ -6,7 +6,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mood_app/controllers/MoodController.dart';
 import 'package:mood_app/enums/Status.dart';
 import 'package:mood_app/util/UtilDate.dart';
-import 'package:mood_app/widgets/LogoutButton.dart';
+import 'package:mood_app/util/UtilDialog.dart';
+import 'package:mood_app/widgets/SmallerButton.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class FeedScreen extends StatefulWidget {
@@ -57,13 +58,17 @@ class _FeedScreenState extends State<FeedScreen> {
                         );
                       case ConsultStatus.SUCCESS:
                         if (_moodController.moods.length == 0) {
-                          return Center(
-                              child: Column(
-                            children: [
-                              Text("Add a mood to check your diary"),
-                              
-                            ],
-                          ));
+                          return Container(
+                            margin: EdgeInsets.only(
+                                top: MediaQuery.of(context).size.height / 2.6),
+                            child: Center(
+                              child: Text("Add a mood to check your diary",
+                                  textAlign: TextAlign.center,
+                                  style: GoogleFonts.nunitoSans(
+                                      fontSize: 22,
+                                      fontWeight: FontWeight.w500)),
+                            ),
+                          );
                         }
                         return Column(children: [
                           ListView.builder(
@@ -124,11 +129,10 @@ class _FeedScreenState extends State<FeedScreen> {
                                                         break;
                                                       case "Ordinary":
                                                         return FaIcon(
-                                                          FontAwesomeIcons
-                                                              .angry,
+                                                          FontAwesomeIcons.meh,
                                                           size: 50,
-                                                          color:
-                                                              Colors.red[900],
+                                                          color: Colors
+                                                              .orange[700],
                                                         );
                                                         break;
                                                       default:
@@ -170,6 +174,9 @@ class _FeedScreenState extends State<FeedScreen> {
                                               children: [
                                                 Container(),
                                                 Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceEvenly,
                                                   children: [
                                                     IconButton(
                                                         icon: FaIcon(

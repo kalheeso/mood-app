@@ -95,4 +95,16 @@ abstract class _UserControllerBase with Store {
       });
     }
   }
+
+  void editUser(User user, {Function() success, Function(String msg) error}) {
+    if (user.password?.isEmpty ?? true) {
+      error?.call('Invalid password');
+    } else {
+      service.editUser(user).then((userReturn) {
+        success?.call();
+      }).catchError((onError) {
+        error?.call(onError.response.data["falha"]);
+      });
+    }
+  }
 }
