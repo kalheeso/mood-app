@@ -12,8 +12,6 @@ import 'package:mood_app/widgets/StandardButton.dart';
 import 'package:mood_app/widgets/StandardTextField.dart';
 
 class UtilDialog {
-  MoodController _moodController = GetIt.I.get<MoodController>();
-
   static void changePassword(BuildContext context, User user) {
     UserController _userController = GetIt.I.get<UserController>();
     showDialog(
@@ -69,6 +67,7 @@ class UtilDialog {
                                                     "/loginScreen",
                                                     (Route<dynamic> route) =>
                                                         false);
+                                            _userController.deleteFromPrefs();
                                           }, error: (msg) {
                                             showInfo(context,
                                                 title: "Ops",
@@ -172,7 +171,6 @@ class UtilDialog {
                             },
                             textEditingController: _textFieldController,
                           ),
-                          
                         ],
                       ))));
         });
@@ -183,6 +181,7 @@ class UtilDialog {
     String title,
     String message,
   }) {
+    UserController _userController = GetIt.I.get<UserController>();
     showDialog(
         barrierDismissible: false,
         context: context,
@@ -225,6 +224,7 @@ class UtilDialog {
                                   Navigator.of(context).pushNamedAndRemoveUntil(
                                       "/loginScreen",
                                       (Route<dynamic> route) => false);
+                                  _userController.deleteFromPrefs();
                                 },
                               )
                             ],

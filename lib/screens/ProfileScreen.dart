@@ -125,7 +125,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           "Logout",
                           style: GoogleFonts.nunitoSans(
                               fontSize: 24,
-                              fontWeight: FontWeight.w700,
+                              fontWeight: FontWeight.w800,
                               color: Colors.grey[500]),
                         ))
                   ],
@@ -158,7 +158,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           "Change password",
                           style: GoogleFonts.nunitoSans(
                               fontSize: 24,
-                              fontWeight: FontWeight.w700,
+                              fontWeight: FontWeight.w800,
                               color: Colors.grey[500]),
                         ))
                   ],

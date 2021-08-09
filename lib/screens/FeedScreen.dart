@@ -112,10 +112,10 @@ class _FeedScreenState extends State<FeedScreen> {
                                                       case "Angry":
                                                         return FaIcon(
                                                           FontAwesomeIcons
-                                                              .sadTear,
+                                                              .angry,
                                                           size: 50,
-                                                          color: Colors
-                                                              .blueGrey[700],
+                                                          color:
+                                                              Colors.red[900],
                                                         );
                                                         break;
                                                       case "Happy":
@@ -178,7 +178,7 @@ class _FeedScreenState extends State<FeedScreen> {
                                                       MainAxisAlignment
                                                           .spaceEvenly,
                                                   children: [
-                                                    IconButton(
+                                                    /*  IconButton(
                                                         icon: FaIcon(
                                                           FontAwesomeIcons.pen,
                                                           size: 14,
@@ -187,7 +187,7 @@ class _FeedScreenState extends State<FeedScreen> {
                                                         ),
                                                         onPressed: () {
                                                            UtilDialog.editMood(context, mood);
-                                                        }),
+                                                        }),*/
                                                     IconButton(
                                                         icon: FaIcon(
                                                           FontAwesomeIcons
